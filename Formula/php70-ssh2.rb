@@ -11,7 +11,9 @@ class Php70Ssh2 < AbstractPhp70Extension
   def install
     safe_phpize
 
-    system "./configure", "--prefix=#{prefix}", phpconfig
+    system "./configure", "--prefix=#{prefix}", 
+                          phpconfig,
+                          "--with-ssh2"
     system "make"
 
     prefix.install "modules/ssh2.so"
